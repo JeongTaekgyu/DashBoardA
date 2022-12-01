@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:testh2
+    url: jdbc:h2:mem:testh2 # 이게 인메모리 방식이라 서버 재실행하면 데이터 사라진다.
     username: sa
     password:
     driver-class-name: org.h2.Driver
@@ -9,7 +9,7 @@ spring:
       enabled: true # 이걸 해야지만 h2-console 로그를 h2 안키고 접속할 수 있다.
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         # show_sql: true # jpa가 실행하는 쿼리를 콘솔에 찍는다.
