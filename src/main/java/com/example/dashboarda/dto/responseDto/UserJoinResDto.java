@@ -9,12 +9,14 @@ import lombok.Getter;
 public class UserJoinResDto {
 
     private Long id;
-    private String userName;
+    private String username;
+    private int age;
 
     public static UserJoinResDto fromUser(User user){
         return new UserJoinResDto(
                 user.getId(),
-                user.getUsername()
+                user.getUsername(),
+                user.getAge()
         );
     }
 }

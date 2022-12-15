@@ -23,10 +23,18 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     // spring security 의존성 추가
 //    implementation 'org.springframework.boot:spring-boot-starter-security'
+
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // mapstruct dependency 추가 - lombok이 먼저, mapstruct가 나중에 나오도록 dependency 설정을 해야한다.
+    // 순서가 잘못되면 제대로 mapper가 설정되지 않는다.
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    implementation 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
+    annotationProcessor "org.projectlombok:lombok-mapstruct-binding:0.2.0"
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 //    testImplementation 'org.springframework.security:spring-security-test'

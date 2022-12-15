@@ -20,8 +20,21 @@ public class UserController {
 
     @PostMapping("/join")
     public Response<UserJoinResDto> join(@RequestBody UserJoinReqDto request) {
-        User user = userService.join(request.getUsername(), request.getPassword());
+        User user = userService.join(request);
         UserJoinResDto response = UserJoinResDto.fromUser(user);
         return Response.success(response);
     }
+
+    @PostMapping("/joinByMapstruct")
+    public Response<?> joinByMapstruct(@RequestBody UserJoinReqDto request) {
+        UserJoinResDto resDto = userService.joinByMapstruct(request);
+        return Response.success(resDto);
+    }
+
+    /*@PostMapping("/join")
+    public Response<UserDto> join(@RequestBody UserDto request) {
+        UserDto userDto = userService.join(request);
+        //UserJoinResDto response = UserJoinResDto.fromUser(user);
+        return Response.success(userDto);
+    }*/
 }

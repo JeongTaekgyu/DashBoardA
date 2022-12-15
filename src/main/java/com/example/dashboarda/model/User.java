@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 public class User{
 
     private Long id;
-    // userName - > username,  json으로 변환해서 redis에 넣을거다.
     private String username;
+    private int age;
     private String password;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
@@ -26,6 +26,7 @@ public class User{
         return new User(
                 entity.getId(),
                 entity.getUsername(),
+                entity.getAge(),
                 entity.getPsword(),
                 entity.getCreatedAt(),
                 entity.getModifiedAt()

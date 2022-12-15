@@ -1,5 +1,6 @@
 package com.example.dashboarda.model.entity;
 
+import com.example.dashboarda.dto.requestDto.UserJoinReqDto;
 import com.example.dashboarda.model.TimeStamped;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,12 +23,22 @@ public class UserEntity extends TimeStamped {
     private String username;
 
     @Column(nullable = false)
+    private int age;
+
+    @Column(nullable = false)
     private String psword;
 
-    public static UserEntity of(String userName, String password){
+    public UserEntity(UserJoinReqDto reqDto){
+        this.username = reqDto.getUsername();
+        this.age = reqDto.getAge();
+        this.psword = reqDto.getPsword();
+    }
+
+    public static UserEntity of(UserJoinReqDto reqDto){
         UserEntity userEntity = new UserEntity();
-        userEntity.setUsername(userName);
-        userEntity.setPsword(password);
+        userEntity.setUsername(reqDto.getUsername());
+        userEntity.setAge(reqDto.getAge());
+        userEntity.setPsword(reqDto.getPsword());
         return userEntity;
     }
 }
