@@ -1,5 +1,6 @@
-package com.example.dashboarda.model;
+package com.example.dashboarda.model.entity;
 
+import com.example.dashboarda.model.TimeStamped;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Table(name = "post")
-public class PostEntity extends TimeStamped{
+public class PostEntity extends TimeStamped {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

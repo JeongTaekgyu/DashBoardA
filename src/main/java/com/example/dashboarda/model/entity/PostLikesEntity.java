@@ -1,4 +1,4 @@
-package com.example.dashboarda.model;
+package com.example.dashboarda.model.entity;
 
 import lombok.Getter;
 

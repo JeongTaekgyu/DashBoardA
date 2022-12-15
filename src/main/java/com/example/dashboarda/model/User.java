@@ -1,23 +1,35 @@
 package com.example.dashboarda.model;
 
-import lombok.Getter;
+import com.example.dashboarda.model.entity.UserEntity;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
-@Entity
-@Getter
-@Table(name = "users")
-public class User extends TimeStamped{
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class User{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     private Long id;
-
-    @Column(nullable = false)
     private String username;
+    private int age;
+    private String password;
+    private LocalDateTime createdAt;
+    private LocalDateTime modifiedAt;
 
-    @Column(nullable = false)
-    private String psword;
-
+    public static User fromEntity(UserEntity entity) {
+        return new User(
+                entity.getId(),
+                entity.getUsername(),
+                entity.getAge(),
+                entity.getPsword(),
+                entity.getCreatedAt(),
+                entity.getModifiedAt()
+        );
+    }
 }
