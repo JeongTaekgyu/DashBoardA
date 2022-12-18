@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-@Table(name = "post_likes")
+@Table(name = "\"post_likes\"")
 public class PostLikesEntity {
 
     @Id

@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter
-@Table(name = "post")
+@Table(name = "\"post\"")
 public class PostEntity extends TimeStamped {
 
     @Id

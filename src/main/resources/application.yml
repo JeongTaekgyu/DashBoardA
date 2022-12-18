@@ -1,19 +1,26 @@
+
 spring:
   datasource:
-    url: jdbc:h2:mem:testh2 # 이게 인메모리 방식이라 서버 재실행하면 데이터 사라진다.
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:testh2 # 이게 인메모리 방식이라 서버 재실행하면 데이터 사라진다.
+    url: jdbc:postgresql://localhost:5432/what2  # postgresql
+#    url: jdbc:postgresql://localhost:5432/agens1 # agensgraph
+    username: test1
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 4
   h2:
     console:
       enabled: true # 이걸 해야지만 h2-console 로그를 h2 안키고 접속할 수 있다.
   jpa:
+    hibernate.dialect: org.hibernate.dialect.PostgreSQLdialect
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
         # show_sql: true # jpa가 실행하는 쿼리를 콘솔에 찍는다.
         format_sql: true  # 쿼리가 format돼서 예쁘게 나온다.
+    database: postgresql
 
 logging.level:
   org.hibernate.SQL: debug # 콘솔에 남기는게 아니라 로그 파일로 남긴다.

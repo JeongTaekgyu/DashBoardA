@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Getter @Setter
-@Table(name = "users")
+@Table(name = "\"users\"")
 @NoArgsConstructor
 public class UserEntity extends TimeStamped {
 
